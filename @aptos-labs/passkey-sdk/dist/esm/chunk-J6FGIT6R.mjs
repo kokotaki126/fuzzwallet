@@ -1,0 +1,2 @@
+import{a as o}from"./chunk-A4I7PD5T.mjs";var t=class{constructor(n){this.config=n}async transferCoinTransaction(n){return o({aptosConfig:this.config,...n})}};export{t as a};
+//# sourceMappingURL=chunk-J6FGIT6R.mjs.map

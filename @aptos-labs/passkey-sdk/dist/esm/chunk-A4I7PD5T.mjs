@@ -1,0 +1,2 @@
+import{n as t}from"./chunk-2LFRTQJA.mjs";import{f as n}from"./chunk-HHJBCGAQ.mjs";async function A(o){let{aptosConfig:r,sender:i,recipient:e,amount:s,coinType:c,options:a}=o;return await t({aptosConfig:r,sender:i,data:{function:"0x1::aptos_account::transfer_coins",typeArguments:[c??n],functionArguments:[e,s]},options:a})}export{A as a};
+//# sourceMappingURL=chunk-A4I7PD5T.mjs.map

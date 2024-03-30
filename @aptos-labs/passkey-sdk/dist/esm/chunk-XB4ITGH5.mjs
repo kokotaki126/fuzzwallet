@@ -1,0 +1,2 @@
+import{n as t}from"./chunk-2LFRTQJA.mjs";var o=class{constructor(n){this.config=n}async simple(n){return t({aptosConfig:this.config,...n})}async multiAgent(n){return t({aptosConfig:this.config,...n})}};export{o as a};
+//# sourceMappingURL=chunk-XB4ITGH5.mjs.map

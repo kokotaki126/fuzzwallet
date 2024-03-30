@@ -1,0 +1,2 @@
+import{a as t,b as n,g as i,h as r,i as s}from"./chunk-2AOB4ZA4.mjs";var o=class{constructor(e){this.config=e}async signAndSubmitWithPasskey(e){return r({aptosConfig:this.config,...e})}async getPasskeyAccountAddress(e){return s(e)}async generateRegistrationOptions(e){return t(e)}async registerCredential(e){return n(e)}parsePublicKey(e){return i(e)}};export{o as a};
+//# sourceMappingURL=chunk-FY4G34KD.mjs.map
