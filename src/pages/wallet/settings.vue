@@ -10,7 +10,7 @@
           @click="openPasskeyCollapse = !openPasskeyCollapse"
         >
           <span class="font-bold">Passkey Management</span>
-          <span>
+          <!-- <span>
             <font-awesome-icon
               icon="fa-solid fa-chevron-down"
               class="transition-all"
@@ -18,16 +18,18 @@
                 'transform -rotate-180': openPasskeyCollapse,
               }"
             ></font-awesome-icon>
-          </span>
+          </span> -->
         </span>
       </template>
       <div class="w-full flex-col gap-1 mt-2 text-sm px-2 pb-2">
         <div
           class="bg-accent/10 px-2 py-1 rounded-1 font-bold text-center text-xl"
           @click="openpasskey"
+          v-if="accountStore.profile?.passKey?.length < 1"
         >
           +
         </div>
+        <div>1 Passkey</div>
       </div>
     </Collapse>
 
