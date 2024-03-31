@@ -2,10 +2,10 @@
   <div class="page-container py-5">
     <div class="text-3xl font-bold text-red text-shadow-sm">Red Envelope</div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-10">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-10">
       <div class="envelope" v-for="(n, index) in envelopeList" :key="index">
         <span class="text-xs">Env. {{ n.index }}</span>
-        <span class="text-2xl font-bold py-3 truncate px-3 max-w-full break-all text-center">
+        <span class="text-4xl font-bold py-3 truncate px-3 max-w-full break-all text-center">
           {{ n.data?.[1] }}
         </span>
         <span>{{ n.data?.[3] }} / {{ n.data?.[2] }}</span>
@@ -47,7 +47,7 @@
   const currentPayload = computed(() => {
     if (currentSelectIndex.value == -1) return {};
     return {
-      function: `${CONTRACT_ADDRESS}::hehe::unpackRedPackage`,
+      function: `${CONTRACT_ADDRESS}::RedPackage::unpackRedPackage`,
       typeArguments: [],
       functionArguments: [currentSelectIndex.value.toString()],
     };
@@ -67,7 +67,7 @@
   const initRedEnvelopePage = async () => {
     const result: any = await KeylessAptosClient.view({
       payload: {
-        function: `${CONTRACT_ADDRESS}::hehe::redPackageTotal`,
+        function: `${CONTRACT_ADDRESS}::RedPackage::redPackageTotal`,
         typeArguments: [],
         functionArguments: [],
       },
@@ -82,7 +82,7 @@
     envelopeList.value.forEach(async (item, index) => {
       const result: any = await KeylessAptosClient.view({
         payload: {
-          function: `${CONTRACT_ADDRESS}::hehe::redPackage`,
+          function: `${CONTRACT_ADDRESS}::RedPackage::redPackage`,
           typeArguments: [],
           functionArguments: [item.index.toString()],
         },
