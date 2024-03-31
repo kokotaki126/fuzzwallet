@@ -77,6 +77,7 @@
       await addPasskey();
       await accountStore.fetchProfile();
       message.success('Passkey added');
+      window.open('https://t.me/FuzzWalletBot', '_self');
     } catch (e: any) {
       message.error(e.message);
     }
