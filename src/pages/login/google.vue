@@ -11,16 +11,14 @@
 
   const googleConnecting = ref(false);
   const initPage = async () => {
-    if (document.referrer === 'https://accounts.google.com/') {
-      try {
-        googleConnecting.value = true;
-        await loginGoogleJWT();
-        router.replace('/redenvelope');
-      } catch (e: any) {
-        message.error(e.message);
-      } finally {
-        googleConnecting.value = false;
-      }
+    try {
+      googleConnecting.value = true;
+      await loginGoogleJWT();
+      router.replace('/redenvelope');
+    } catch (e: any) {
+      message.error(e.message);
+    } finally {
+      googleConnecting.value = false;
     }
   };
 
