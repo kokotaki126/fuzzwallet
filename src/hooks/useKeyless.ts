@@ -178,10 +178,12 @@ const useKeyless = () => {
         ephemeralKeyPair,
       });
 
-      await axios.post('/auth/google_login', {
+      const result: any = await axios.post('/auth/google_login', {
         idToken: jwt,
         address: kla.accountAddress.toStringLong(),
       });
+
+      localStorage.setItem(FUZZ_LOGIN_JWT, result);
       message.success('Google account login success');
     }
   };
