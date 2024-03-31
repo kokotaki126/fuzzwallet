@@ -188,8 +188,6 @@ const useKeyless = () => {
     }
   };
 
-  // TODO: swap jwt
-
   return {
     connectGoogle,
     loginGoogle,

@@ -113,13 +113,13 @@
 
 <style lang="less" scoped>
   .tabbar {
-    @apply h-15 text-sm;
+    @apply min-h-15 text-sm;
     @apply border-t-1 border-t-solid border-t-accent/30;
     @apply fixed bottom-0 left-0 right-0;
     @apply bg-background justify-items-center items-center grid grid-cols-4;
 
     .tabbar-item {
-      @apply flex-col items-center gap-2px cursor-pointer transition-all;
+      @apply flex-col-center items-center gap-2px py-3 pb-5 cursor-pointer transition-all w-full h-full;
 
       &.active,
       &:hover {
