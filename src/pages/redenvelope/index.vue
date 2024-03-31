@@ -4,8 +4,12 @@
       <div class="text-3xl font-bold text-red text-shadow-sm">
         <span>Red Envelope</span>
       </div>
-      <span class="text-2xl font-bold" v-if="accountStore.profile?.telegramUser?.username">
+      <span
+        class="text-2xl font-bold flex-col items-end"
+        v-if="accountStore.profile?.telegramUser?.username"
+      >
         Hi, {{ accountStore.profile?.telegramUser?.username }}
+        <span class="text-sm mt-1">{{ ShortAddress(accountStore.profile?.multiSigAddress) }}</span>
       </span>
       <Button v-else @click="loginGoogle">Sign In</Button>
     </div>
@@ -50,6 +54,7 @@
   import useKeyless from '@/hooks/useKeyless';
   import Button from '@/lib/Button.vue';
   import useAccountStore from '@/store/AccountStore';
+  import { ShortAddress } from '@/utils';
   import { message } from 'ant-design-vue';
   import { isEmpty } from 'lodash-es';
 
