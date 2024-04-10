@@ -29,6 +29,16 @@
 
     TelegramBotInit();
 
+    if (window.PublicKeyCredential && PublicKeyCredential.isConditionalMediationAvailable) {
+      // Check if conditional mediation is available.
+      const isCMA = await PublicKeyCredential.isConditionalMediationAvailable();
+      console.log('Conditional mediation is available', isCMA);
+
+      if (isCMA) {
+        // Call WebAuthn authentication
+      }
+    }
+
     if (inited.value) return;
 
     try {
