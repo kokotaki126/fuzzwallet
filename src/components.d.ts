@@ -10,7 +10,6 @@ declare module 'vue' {
     AccountCreate: typeof import('./components/AccountCreate.vue')['default']
     AccountPanel: typeof import('./components/AccountPanel.vue')['default']
     AssertPanel: typeof import('./components/AssertPanel.vue')['default']
-    copy: typeof import('./components/AssertPanel copy.vue')['default']
     InitLoading: typeof import('./components/InitLoading.vue')['default']
     LogoImg: typeof import('./components/LogoImg.vue')['default']
     MainPageActs: typeof import('./components/MainPageActs.vue')['default']
