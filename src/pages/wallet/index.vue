@@ -59,7 +59,7 @@
     if (!isInited) {
       try {
         alert('start init');
-        init((res: any) => {
+        await init((res: any) => {
           alert(`init res: ${JSON.stringify(res)}`);
         });
       } catch (e: any) {
