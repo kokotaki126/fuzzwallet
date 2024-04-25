@@ -57,41 +57,27 @@
     } = window.Telegram.WebApp.BiometricManager;
 
     if (!isInited) {
-      try {
-        alert('start init');
-        await init((res: any) => {
-          alert(`init res: ${JSON.stringify(res)}`);
+      alert('start init');
+      init(() => {
+        alert('init success');
+
+        alert(`isInited: ${window.Telegram.WebApp.BiometricManager.isInited}`);
+
+        alert('start requestAccess');
+        requestAccess({ reason: 'gogogogo' }, (res: any) => {
+          alert(`requestAccess res: ${JSON.stringify(res)}`);
         });
-      } catch (e: any) {
-        alert(JSON.stringify(e));
-      }
-    }
 
-    alert(`inited ${window.Telegram.WebApp.BiometricManager.isInited}`);
-    alert('end request access');
-    try {
-      requestAccess({ reason: 'gogogogo' }, (res: any) => {
-        alert(`requestAccess res: ${JSON.stringify(res)}`);
+        alert('start authenticate');
+        authenticate({ reason: 'authenticate gogogogo' }, (res: any) => {
+          alert(`authenticate res: ${JSON.stringify(res)}`);
+        });
+
+        alert(
+          ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
+        );
       });
-    } catch (e: any) {
-      alert(JSON.stringify(e));
     }
-
-    alert('after requestAccess');
-    try {
-      authenticate({ reason: 'authenticate gogogogo' }, (res: any) => {
-        alert(`authenticate res: ${JSON.stringify(res)}`);
-      });
-    } catch (e: any) {
-      alert(JSON.stringify(e));
-    }
-
-    alert('end request access');
-    alert(
-      ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
-    );
-    // alert('start open settings');
-    // window.Telegram.WebApp.BiometricManager.openSettings();
   };
 </script>
 
