@@ -49,7 +49,18 @@
     }
 
     alert('end request access');
-    window.Telegram.WebApp.BiometricManager.requestAccess({ reason: 'gogogogo' });
+    window.Telegram.WebApp.BiometricManager.requestAccess({ reason: 'gogogogo' }, (res: any) => {
+      alert(`requestAccess res: ${JSON.stringify(res)}`);
+    });
+
+    window.Telegram.WebApp.BiometricManager.authenticate(
+      { reason: 'authenticate gogogogo' },
+      (res: any) => {
+        alert(`authenticate res: ${JSON.stringify(res)}`);
+      },
+    );
+
+    alert('end request access');
     // alert('start open settings');
     // window.Telegram.WebApp.BiometricManager.openSettings();
   };
