@@ -57,7 +57,14 @@
     } = window.Telegram.WebApp.BiometricManager;
 
     if (!isInited) {
-      init();
+      try {
+        alert('start init');
+        init((res: any) => {
+          alert(`init res: ${JSON.stringify(res)}`);
+        });
+      } catch (e: any) {
+        alert(JSON.stringify(e));
+      }
     }
 
     alert(`inited ${window.Telegram.WebApp.BiometricManager.isInited}`);
