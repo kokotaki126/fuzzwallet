@@ -10,6 +10,8 @@
     "init-dev": "cd @aptos-labs/passkey-sdk && pnpm i && cd ../.. && pnpm i"
   },
   "dependencies": {
+    "@aptos-labs/ts-sdk": "^1.2.0",
+    "@aptos-labs/wallet-adapter-core": "^3.2.1",
     "@fortawesome/fontawesome-svg-core": "6.5.1",
     "@fortawesome/free-brands-svg-icons": "6.5.1",
     "@fortawesome/free-regular-svg-icons": "6.5.1",
@@ -60,3 +62,4 @@
     "vue-tsc": "^2.0.7"
   }
 }
+
