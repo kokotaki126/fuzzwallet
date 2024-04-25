@@ -75,8 +75,8 @@
     alert('start authenticate');
 
     let { authenticate } = window.Telegram.WebApp.BiometricManager;
-    authenticate({ reason: 'authenticate gogogogo' }, (res: any) => {
-      alert(`authenticate res: ${JSON.stringify(res)}`);
+    authenticate({ reason: 'authenticate gogogogo' }, (res: any, token: string) => {
+      alert(`authenticate res: ${JSON.stringify(res)}, token: ${token}`);
 
       let {
         isAccessRequested,
@@ -84,7 +84,10 @@
         isBiometricTokenSaved,
         deviceId,
         isBiometricAvailable,
+        updateBiometricToken,
       } = window.Telegram.WebApp.BiometricManager;
+
+      updateBiometricToken(token);
 
       alert(
         ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
