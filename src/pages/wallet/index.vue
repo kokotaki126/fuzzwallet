@@ -49,16 +49,25 @@
     }
 
     alert('end request access');
-    window.Telegram.WebApp.BiometricManager.requestAccess({ reason: 'gogogogo' }, (res: any) => {
-      alert(`requestAccess res: ${JSON.stringify(res)}`);
-    });
+    try {
+      window.Telegram.WebApp.BiometricManager.requestAccess({ reason: 'gogogogo' }, (res: any) => {
+        alert(`requestAccess res: ${JSON.stringify(res)}`);
+      });
+    } catch (e: any) {
+      alert(JSON.stringify(e));
+    }
 
-    window.Telegram.WebApp.BiometricManager.authenticate(
-      { reason: 'authenticate gogogogo' },
-      (res: any) => {
-        alert(`authenticate res: ${JSON.stringify(res)}`);
-      },
-    );
+    alert('after requestAccess');
+    try {
+      window.Telegram.WebApp.BiometricManager.authenticate(
+        { reason: 'authenticate gogogogo' },
+        (res: any) => {
+          alert(`authenticate res: ${JSON.stringify(res)}`);
+        },
+      );
+    } catch (e: any) {
+      alert(JSON.stringify(e));
+    }
 
     alert('end request access');
     // alert('start open settings');
