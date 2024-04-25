@@ -43,23 +43,15 @@
   };
 
   const requestAccess = async () => {
+    alert('start request access');
     if (window.Telegram.WebApp.BiometricManager.isInited) {
-      alert('inited');
-      // window.Telegram.WebApp.BiometricManager.requestAccess();
-      window.Telegram.WebApp.BiometricManager.openSettings();
-    } else {
-      alert('go init');
-      window.Telegram.WebApp.BiometricManager.init([
-        (isInited: boolean) => {
-          console.log('isInited', isInited);
-          if (isInited) {
-            // window.Telegram.WebApp.BiometricManager.requestAccess();
-            // window.Telegram.WebApp.BiometricManager.openSettings();
-            alert('inited');
-          }
-        },
-      ]);
+      window.Telegram.WebApp.BiometricManager.init();
     }
+
+    alert('end request access');
+    window.Telegram.WebApp.BiometricManager.requestAccess({ reason: 'gogogogo' });
+    // alert('start open settings');
+    // window.Telegram.WebApp.BiometricManager.openSettings();
   };
 </script>
 
