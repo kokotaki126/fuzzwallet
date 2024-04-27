@@ -1,7 +1,5 @@
 <template>
   <div class="!p-0">
-    <Button @click="requestAccess">Request</Button>
-    <Button @click="authenticate">Authenticate</Button>
     <div class="px-4">
       <div class="grid grid-cols-2 gap-4 my-3">
         <Button class="!w-full !text-xl" @click="faucetHandler" :loading="fauceting">
@@ -45,55 +43,55 @@
     }
   };
 
-  const requestAccess = async () => {
-    alert('start request access');
-    let { isInited, requestAccess } = window.Telegram.WebApp.BiometricManager;
+  // const requestAccess = async () => {
+  //   alert('start request access');
+  //   let { isInited, requestAccess } = window.Telegram.WebApp.BiometricManager;
 
-    if (!isInited) {
-      alert(`isInited: ${window.Telegram.WebApp.BiometricManager.isInited}`);
+  //   if (!isInited) {
+  //     alert(`isInited: ${window.Telegram.WebApp.BiometricManager.isInited}`);
 
-      alert('start requestAccess');
-      requestAccess({ reason: 'gogogogo' }, (res: any) => {
-        alert(`requestAccess res: ${JSON.stringify(res)}`);
+  //     alert('start requestAccess');
+  //     requestAccess({ reason: 'gogogogo' }, (res: any) => {
+  //       alert(`requestAccess res: ${JSON.stringify(res)}`);
 
-        let {
-          isAccessRequested,
-          isAccessGranted,
-          isBiometricTokenSaved,
-          deviceId,
-          isBiometricAvailable,
-        } = window.Telegram.WebApp.BiometricManager;
+  //       let {
+  //         isAccessRequested,
+  //         isAccessGranted,
+  //         isBiometricTokenSaved,
+  //         deviceId,
+  //         isBiometricAvailable,
+  //       } = window.Telegram.WebApp.BiometricManager;
 
-        alert(
-          ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
-        );
-      });
-    }
-  };
+  //       alert(
+  //         ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
+  //       );
+  //     });
+  //   }
+  // };
 
-  const authenticate = async () => {
-    alert('start authenticate');
+  // const authenticate = async () => {
+  //   alert('start authenticate');
 
-    let { authenticate } = window.Telegram.WebApp.BiometricManager;
-    authenticate({ reason: 'authenticate gogogogo' }, (res: any, token: string) => {
-      alert(`authenticate res: ${JSON.stringify(res)}, token: ${token}`);
+  //   let { authenticate } = window.Telegram.WebApp.BiometricManager;
+  //   authenticate({ reason: 'authenticate gogogogo' }, (res: any, token: string) => {
+  //     alert(`authenticate res: ${JSON.stringify(res)}, token: ${token}`);
 
-      let {
-        isAccessRequested,
-        isAccessGranted,
-        isBiometricTokenSaved,
-        deviceId,
-        isBiometricAvailable,
-        updateBiometricToken,
-      } = window.Telegram.WebApp.BiometricManager;
+  //     let {
+  //       isAccessRequested,
+  //       isAccessGranted,
+  //       isBiometricTokenSaved,
+  //       deviceId,
+  //       isBiometricAvailable,
+  //       updateBiometricToken,
+  //     } = window.Telegram.WebApp.BiometricManager;
 
-      updateBiometricToken(token);
+  //     updateBiometricToken(token);
 
-      alert(
-        ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
-      );
-    });
-  };
+  //     alert(
+  //       ` isBiometricAvailable: ${isBiometricAvailable}, isAccessRequested: ${isAccessRequested}, isAccessGranted: ${isAccessGranted}, isBiometricTokenSaved: ${isBiometricTokenSaved}, deviceId: ${deviceId}`,
+  //     );
+  //   });
+  // };
 </script>
 
 <route lang="yaml">
