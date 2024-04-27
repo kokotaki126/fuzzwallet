@@ -17,7 +17,7 @@ const usePasskey = () => {
     }
 
     const options: any = await PasskeyAptosClient.generateRegistrationOptions({
-      rpName: `${window.location.origin}_${Date.now()}`,
+      rpName: `${window.location.origin}`,
       rpID: window.location.hostname,
       userName: accountStore.profile?.telegramUser?.tgId,
       userID: accountStore.profile.id,

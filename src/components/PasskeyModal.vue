@@ -43,8 +43,9 @@
           <div class="flex-col gap-2 max-h-100 overflow-y-auto">
             <div
               class="p-4 py-2 rounded-md border-dashed border-2 border-black/30 hover:border-black/70 transition-all cursor-pointer"
-              v-for="(passkey, index) in accountStore.profile?.passKey?.slice(-1)"
+              v-for="(passkey, index) in accountStore.profile?.passKey"
               :key="passkey?.address"
+              @click="currentPasskey = passkey"
             >
               {{ index + 1 }}.
               {{ ShortAddress(passkey?.address, { prefixLen: 10, suffixLen: 10 }) }}
@@ -80,11 +81,11 @@
   const { signTransactionWithPassKey } = usePasskey();
 
   const approving = ref(false);
+  const currentPasskey = ref<any>(null);
   const approvePasskeyHandler = async () => {
     if (approving.value) return;
 
-    const passkey = accountStore.profile?.passKey?.slice(-1)?.[0];
-    if (!passkey) {
+    if (!currentPasskey.value) {
       message.error('Invalid Passkey');
       return;
     }
@@ -92,7 +93,7 @@
     try {
       approving.value = true;
       await signTransactionWithPassKey({
-        passkeyData: passkey as any,
+        passkeyData: currentPasskey.value as any,
         transactionPayload: props.transactionPayload,
       });
       message.success('Transaction Approved');

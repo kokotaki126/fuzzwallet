@@ -33,7 +33,6 @@
     <div
       class="border-2 border-dashed border-black/10 bg-background transition-all hover:border-black/70 text-accent rounded-xl p-4 h-15 flex-center text-xl font-bold border-box"
       @click="addPasskeyhandler"
-      v-if="accountStore.profile?.passKey?.length < 1"
     >
       Add New Passkey
     </div>
