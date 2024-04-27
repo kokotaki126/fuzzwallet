@@ -25,7 +25,6 @@
         <div
           class="bg-accent/10 px-2 py-1 rounded-1 font-bold text-center text-xl"
           @click="openpasskey"
-          v-if="accountStore.profile?.passKey?.length < 1"
         >
           +
         </div>
