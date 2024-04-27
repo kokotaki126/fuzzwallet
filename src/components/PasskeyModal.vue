@@ -97,7 +97,7 @@
         transactionPayload: props.transactionPayload,
       });
       message.success('Transaction Approved');
-      emits('success');
+      // emits('success');
     } catch (e: any) {
       if (e.name == 'NotAllowedError') {
         message.error('User denied the transaction');

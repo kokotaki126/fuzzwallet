@@ -104,6 +104,8 @@ const usePasskey = () => {
       },
     );
 
+    console.log('hash', hash);
+
     return hash;
   };
 
