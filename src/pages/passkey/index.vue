@@ -4,7 +4,7 @@
   <div class="flex-col items-center w-full gap-2 mt-4 pb-10">
     <Panel
       class="flex-col break-all !gap-0 w-full"
-      v-for="(n, index) in accountStore.profile?.passKey?.slice(-1)"
+      v-for="(n, index) in accountStore.profile?.passKey"
       :key="index"
     >
       <!-- <DataColumnItem title="Index" :value="index + 1"></DataColumnItem> -->
